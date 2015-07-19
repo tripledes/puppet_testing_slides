@@ -1,0 +1,59 @@
+Puppet Testing for fun and profit
+DevOpsMUC 2015, July 27, 2015
+
+Sergio Jimenez
+Teradata
+
+
+* About me
+
+Recovering sysadmin:
+
+.image images/purple_minion.png 120 160
+
+- Used to work in traditional sysadmin envs.
+- 2012, started to be interested in development.
+- 2013, met Puppet, Ruby and Unit testing.
+- 2014, met Acceptance testing and Golang.
+- 2015, granted to switch to development (still doing Ops ;-) ).
+
+
+* Agenda
+
+- Unit Testing with RSpec Puppet
+- Acceptance Testing with RSpec Beaker
+
+
+* Why testing?
+
+- Developers have been doing it for ages...
+- Puppet is code, isn't it?
+- Early detection of errors/bugs.
+- Integration with CI systems.
+
+.image images/Lazy-dog-framed.jpg
+
+
+* Introducing Unit Testing
+
+Unit testing, also known as component testing, refers to tests that verify the functionality of a specific section of code, usually at the function level. In an object-oriented environment, this is usually at the class level, and the minimal unit tests include the constructors and destructors. [[https://en.wikipedia.org/wiki/Software_testing#Unit_testing][Wikipedia]]
+
+How does that translate to Puppet?
+
+- Whatever the catalog contains.
+ - Resources.
+ - Classes.
+ - Defined types.
+ ...
+
+* RSpec Puppet
+
+- What is RSpec?
+ Behavior-driven development framework for Ruby.
+
+- What is RSpec-Puppet?
+ RSpec extension for Puppet testing.
+
+- Do I need to know RSpec to write Puppet tests?
+ It's not manadatory, but helps.
+
