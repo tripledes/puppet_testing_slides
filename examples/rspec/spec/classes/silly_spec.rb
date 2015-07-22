@@ -1,9 +1,7 @@
-require 'spec_helper'
 require 'silly'
 
-RSpec.describe 'Silly', '#sum' do
+describe 'Silly', '#sum' do
   it 'sums a and b' do
-    silly = Silly.new
-    expect(silly.make_sum(3,4)).to eq 7
+    expect(Silly.new.make_sum(3,4)).to eq 7
   end
 end
