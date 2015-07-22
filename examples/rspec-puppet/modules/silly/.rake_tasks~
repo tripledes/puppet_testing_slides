@@ -1,0 +1,6 @@
+lint
+rspec
+rspec:classes
+rspec:defines
+rspec:functions
+rspec:hosts
