@@ -1,5 +1,6 @@
 Puppet Testing for fun and profit
 DevOpsMUC 2015, July 27, 2015
+Tags: devopsmuc, puppet, testing
 
 Sergio Jimenez
 Teradata
@@ -32,6 +33,7 @@ Recovering sysadmin:
 - Integration with CI systems.
 
 .image images/Lazy-dog-framed.jpg
+.caption _Watching_the_CI_system_
 
 
 * Introducing Unit Testing
@@ -127,3 +129,10 @@ How does that translate to Puppet?
   rake syntax:manifests  # Syntax check Puppet manifests
   rake syntax:templates  # Syntax check Puppet templates
   rake validate          # Check syntax of Ruby files and call :syntax and :metadata
+
+* Fixtures example
+
+- _.fixtures.yml_
+
+.code examples/fixtures/fixtures.yml
+
