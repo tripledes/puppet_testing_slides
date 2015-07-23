@@ -1,0 +1,17 @@
+fixtures:
+  repositories:
+    apt:
+      repo: "https://github.com/puppetlabs/puppetlabs-apt"
+      ref: "origin/1.7.x"
+      branch: "stable"
+    mystdlib:
+      repo: "https://myscm/user/user-mystdlib"
+      scm: "hg"
+  symlinks:
+      my_module: "#{source_dir}"
+      my_module2: "../../path/to/my_module2"
+  forge_modules:
+    stdlib:
+      repo: "puppetlabs/stdlib"
+      ref: "4.4.0"
+
