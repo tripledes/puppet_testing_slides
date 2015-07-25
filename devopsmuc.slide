@@ -136,3 +136,64 @@ How does that translate to Puppet?
 
 .code examples/fixtures/fixtures.yml
 
+
+* Let's do a quick live demo
+
+.image images/homer_epic_fail.jpg 450 600
+
+* Other useful matchers
+
+- Catalog:
+  compile[.with_all_deps()]
+- Resources:
+  contain_*(), have_resource_count(), have_class_count(), have_*_resource_count()
+- Resource dependencies:
+  .that_requires(), .that_comes_before(), .that_notifies() and .that_subscribes_to()
+- Errors:
+  expect{}.to raise_error()
+- Functions:
+  run.with_params().(and_return() or and_raise_error())
+
+* Other useful matchers (examples)
+
+  it { should compile.with_all_deps }
+  it { should have_resource_count(2) }
+  it { should have_class_count(1) }
+  it { should have_logrotate__rule_resource_count(1) }
+  it { should contain_file('foo').that_requires('File[bar]') }
+  it { should contain_file('foo').that_comes_before('File[bar]') }
+  it { should contain_file('foo').that_notifies('File[bar]') }
+  it { should contain_file('foo').that_subscribes_to('File[bar]') }
+  it do
+    expect {
+      should compile
+    }.to raise_error(Puppet::Error, /foo must be a boolean/)
+  end
+  it { should run.with_params('foo').and_return('bar') }
+  it { should run.with_params().and_raise_error(ArgumentError) }
+
+* Helpful tools
+
+.image images/rvm.png 100 100
+.caption [[http://rvm.io][RVM]]
+.image images/bundler.png 100 100
+.caption [[http://bundler.io/][Bundler]]
+.image images/guard.png 100 100
+.caption [[https://github.com/guard/guard-rspec][Guard::RSpec]]
+
+* Say hello to Beaker
+
+.image images/beaker_fire.jpeg 367 502
+
+* What is Beaker
+
+- PuppetLabs' cloud acceptance test framework.
+- Provision and configure hosts for Puppet PE or other Puppet projects.
+- Tests are just Ruby files with Beaker DSL.
+
+* What is Beaker-RSpec
+
+- Bridge between Beaker and RSpec.
+- Provisions and configures hosts.
+- Uses Vagrant and ServerSpec under the hood.
+- Tests are written in RSpec format using ServerSpec matchers and Beaker DSL.
