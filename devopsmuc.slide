@@ -49,7 +49,7 @@ How does that translate to Puppet?
  - Defined types.
  ...
 
-* RSpec Puppet
+* Introducing RSpec Puppet
 
 - What is RSpec?
  Behavior-driven development framework for Ruby.
@@ -167,7 +167,7 @@ How does that translate to Puppet?
   it { should contain_file('foo').that_subscribes_to('File[bar]') }
   it do
     expect {
-      should compile
+      should
     }.to raise_error(Puppet::Error, /foo must be a boolean/)
   end
   it { should run.with_params('foo').and_return('bar') }
@@ -241,6 +241,15 @@ How does that translate to Puppet?
 
 * Let's run a complete live demo!
 .image images/Beaker_experiment.gif 324 380
+
+* Useful Links
+.link http://rspec.info RSpec
+.link http://rspec-puppet.com RSpec-Puppet
+.link https://github.com/puppetlabs/puppetlabs_spec_helper PuppetLabs Spec Helper
+.link https://github.com/puppetlabs/beaker Beaker
+.link http://serverspec.org ServerSpec
+.link https://github.com/puppetlabs/beaker-rspec Beaker-RSpec
+
 
 * Questions?
 .image images/fry_questions.jpg
