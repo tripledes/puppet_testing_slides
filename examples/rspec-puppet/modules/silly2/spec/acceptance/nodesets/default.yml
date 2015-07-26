@@ -1,0 +1,10 @@
+HOSTS:
+  debian-7-amd64:
+    roles:
+      - default
+    platform: debian-7-amd64
+    hypervisor: vagrant
+    box: debian77-vbox
+    box_url: http://vagrant.sexylinux.net/debian77-vbox.box
+CONFIG:
+  type: foss

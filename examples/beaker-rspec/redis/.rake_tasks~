@@ -1,0 +1,17 @@
+beaker
+beaker_nodes
+build
+clean
+coverage
+help
+lint
+metadata
+spec
+spec_clean
+spec_prep
+spec_standalone
+syntax
+syntax:hiera
+syntax:manifests
+syntax:templates
+validate

@@ -1,0 +1,9 @@
+HOSTS:
+  ubuntu1404:
+    roles:
+      - default
+    platform: ubuntu-14.04-amd64
+    hypervisor: vagrant
+    box: ksatirli/ubuntu-1404
+CONFIG:
+  type: foss

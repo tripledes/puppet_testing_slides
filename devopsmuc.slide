@@ -57,7 +57,7 @@ How does that translate to Puppet?
  RSpec extension for Puppet testing.
 
 - Do I need to know RSpec to write Puppet tests?
- It's not manadatory, but helps.
+ It's not mandatory, but helps.
 
 * RSpec example
 
@@ -181,9 +181,9 @@ How does that translate to Puppet?
 .image images/guard.png 100 100
 .caption [[https://github.com/guard/guard-rspec][Guard::RSpec]]
 
-* Say hello to Beaker
+* Say hello to Beaker!
 
-.image images/beaker_fire.jpeg 367 502
+.image images/beaker_introduction.gif 367 502
 
 * What is Beaker
 
@@ -197,3 +197,49 @@ How does that translate to Puppet?
 - Provisions and configures hosts.
 - Uses Vagrant and ServerSpec under the hood.
 - Tests are written in RSpec format using ServerSpec matchers and Beaker DSL.
+
+* What is ServerSpec
+
+- RSpec tests run on a live machine.
+- Actual state is checked via SSH, WinRM, docker API and more.
+- Does OS abstraction.
+- It's not tight to Puppet, Chef, Ansible...but meant to be used with them.
+- Resource types:
+  - Networking: bond, bridge, default gw, interface...
+  - OS: package, service, cgroup, cron, file, user, group...
+  - Firewall: iptables, ipfilter, ipnat...
+  - Security: SELinux, x509 certs...
+  - Containers: docker and lxc
+
+* Preparing all the bits for Beaker-RSpec
+.code examples/rspec-puppet/modules/silly2/spec/spec_helper_acceptance.rb
+.caption spec/spec_helper_acceptance.rb
+
+* Preparing all the bits for Beaker-RSpec (cont.)
+.code examples/rspec-puppet/modules/silly2/spec/acceptance/nodesets/default.yml
+.caption spec/acceptance/nodesets/default.yml
+
+* Writing Beaker-RSpec tests
+.code examples/rspec-puppet/modules/silly2/spec/acceptance/silly2_spec.rb /START BLOCK1/,/END BLOCK1/
+.caption spec/acceptance/silly2_spec.rb
+
+* Writing Beaker-RSpec tests (cont.)
+.code examples/rspec-puppet/modules/silly2/spec/acceptance/silly2_spec.rb /START BLOCK2/,/END BLOCK2/
+.caption spec/acceptance/silly2_spec.rb
+
+* Controlling Beaker-RSpec through environment
+- *BEAKER_debug*: turn on extended debug logging
+
+- *BEAKER_set*: set to the name of the node file to be used during testing (exclude .yml file extension, it will be added by beaker-rspec), assumed to be in module's spec/acceptance/nodesets directory
+
+- *BEAKER_setfile*: set to the full path to a node file be used during testing (be sure to include full path and file extensions, beaker-rspec will use this path without editing/altering it in any way)
+
+- *BEAKER_destroy*: - set to no to preserve test boxes after testing, set to onpass to destroy only if tests pass
+
+- *BEAKER_provision*: set to no to skip provisioning boxes before testing, will then assume that boxes are already provisioned and reachable
+
+* Let's run a complete live demo!
+.image images/Beaker_experiment.gif 324 380
+
+* Questions?
+.image images/fry_questions.jpg
