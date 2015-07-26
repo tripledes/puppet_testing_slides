@@ -25,7 +25,7 @@ class redis (
 
   case $redis_ensure {
     'present': {
-      $pkg_ensure = '2.8.4'
+      $pkg_ensure = '2:2.8.4-2'
       $file_ensure = file
       $service_ensure = running
       $service_enable = true
@@ -55,7 +55,7 @@ class redis (
     ensure  => $file_ensure,
     owner   => 'root',
     group   => 'root',
-    mode    => '0640',
+    mode    => '0644',
     content => template("${module_name}/redis.conf.erb"),
   }
 

@@ -1,7 +1,7 @@
 describe 'redis', :type => :class do
   shared_examples 'common examples for installation' do
     it 'will define package redis-server' do
-      should contain_package('redis-server').with_ensure('2.8.4')
+      should contain_package('redis-server').with_ensure('2:2.8.4-2')
     end
 
     it 'will define service redis-server, enabled and running' do
@@ -26,7 +26,7 @@ describe 'redis', :type => :class do
         :ensure  => 'file',
         :owner   => 'root',
         :group   => 'root',
-        :mode    => '0640',
+        :mode    => '0644',
         :content => /daemonize yes.*port 6379.*bind 127\.0\.0\.1.*databases 16/m,
       }).that_requires('Package[redis-server]').that_notifies('Service[redis-server]')
     end
@@ -55,7 +55,7 @@ describe 'redis', :type => :class do
         :ensure  => 'file',
         :owner   => 'root',
         :group   => 'root',
-        :mode    => '0640',
+        :mode    => '0644',
         :content => /daemonize no.*port 6378.*bind 192\.168\.1\.100.*databases 10/m,
       }).that_requires('Package[redis-server]')
     end

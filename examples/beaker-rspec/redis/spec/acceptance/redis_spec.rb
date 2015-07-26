@@ -14,9 +14,9 @@ describe 'redis' do
     end
   end
 
-  describe package('redis') do
+  describe package('redis-server') do
     it do
-      should be_installed.with_version('2.8.4')
+      should be_installed.with_version('2:2.8.4-2')
     end
   end
 
@@ -24,8 +24,9 @@ describe 'redis' do
     it do
       should be_file
     end
+    ipaddress = command('facter ipaddress').stdout.strip
     its(:content) do
-      should match /bind #{:ipaddress}/
+      should match /bind #{ipaddress}/
     end
   end
 
