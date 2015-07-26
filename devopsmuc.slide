@@ -242,6 +242,12 @@ How does that translate to Puppet?
 * Let's run a complete live demo!
 .image images/Beaker_experiment.gif 324 380
 
+* Next steps?
+- Test other hypervisors.
+- Integration with CI systems.
+- System tests (i.e. [[http://robotframework.org/][Robot Framework]])
+- I'm all ears! :-)
+
 * Useful Links
 .link http://rspec.info RSpec
 .link http://rspec-puppet.com RSpec-Puppet
