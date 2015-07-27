@@ -24,7 +24,9 @@ describe 'redis' do
     it do
       should be_file
     end
+
     ipaddress = command('facter ipaddress').stdout.strip
+
     its(:content) do
       should match /bind #{ipaddress}/
     end
@@ -34,6 +36,14 @@ describe 'redis' do
     it do
       should be_enabled
       should be_running
+    end
+  end
+
+  describe port(6379) do
+    ipaddress = command('facter ipaddress').stdout.strip
+
+    it do
+      should be_listening.on(ipaddress).with('tcp')
     end
   end
 end
